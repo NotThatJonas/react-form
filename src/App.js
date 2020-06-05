@@ -8,13 +8,22 @@ import { BrowserRouter as Router,
 
 //pages
 import MainPage from "./pages";
+import NotFoundPage from "./pages/404";
+
 
 class App extends Component {
   render() {
-    return <Router>
-      <Route path="/" component = {MainPage} />
+    return (
+ <Router>
+      <Switch>
+      <Route exact path="/" component = {MainPage} />
+      <Route exact path="/404" component={NotFoundPage}/>
+      <Redirect to="/404"/>
+      </Switch>
     </Router>
-  }
+
+     ) 
+    }
 }
 
 export default App;
